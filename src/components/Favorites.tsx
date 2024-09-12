@@ -62,7 +62,7 @@ export function Favorites({ name }: FavoritesProps) {
   };
 
   return (
-    <>
+    <div className="team-wrapper">
       <header>
         <h2>Team {name}</h2>
       </header>
@@ -77,12 +77,12 @@ export function Favorites({ name }: FavoritesProps) {
             </ul>
             {/*<PokemonCard />*/}
             <button onClick={() => handleFavoriteClick(index)}>
-              {!pokemon.isFavorite && <FaRegStar />}
-              {pokemon.isFavorite && <FaStar />}
+              {!pokemon.isFavorite && <FaRegStar size={30} />}
+              {pokemon.isFavorite && <FaStar size={30} color="yellow" />}
             </button>
           </div>
         ))}
       </section>
-    </>
+    </div>
   );
 }
