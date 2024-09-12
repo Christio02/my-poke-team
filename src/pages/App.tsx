@@ -1,12 +1,12 @@
-import '../styles/App.css';
-import Header from '../components/Header.tsx';
-import { TeamPage } from './TeamPage.tsx';
+import '../styles/app.css';
+import Nav from '../components/Nav.tsx';
+import Banner from '../components/Banner.tsx';
 
 function App() {
   return (
     <>
-      <Header />
-      <TeamPage />
+      <Nav />
+      <Banner />
     </>
   );
 }

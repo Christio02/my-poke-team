@@ -6,6 +6,7 @@
     color: white;
     width: 100%;
     padding: 10px 0;
+    border-bottom: 2px solid white;
 }
 
 .logo img {
@@ -42,7 +43,6 @@
     font-size: 1.1rem;
     padding: 10px;
     border-radius: 10px;
-    font-family: inherit;
 }
 
 
@@ -57,7 +57,7 @@
     display: none;
     flex-direction: column;
     cursor: pointer;
-    margin-right: 50px;
+    margin-right: 20px;
     transition: transform 0.3s ease;
 }
 
@@ -84,10 +84,6 @@
 }
 
 @media (max-width: 768px) {
-    .header {
-        position: fixed;
-    }
-
     .nav {
         display: none;
         position: absolute;
@@ -101,6 +97,8 @@
 
     .nav.open {
         display: flex;
+        z-index: 3;
+        border-bottom: 1px solid white;
     }
 
     .hamburger {
@@ -109,6 +107,7 @@
 
     .nav-links {
         flex-direction: column;
+        padding: 0;
         gap: 1rem;
     }
 
@@ -117,6 +116,14 @@
         color: white;
         border: 0;
         background: #e74c3c;
+    }
+
+    .logo img {
+        width: 60px;
+    }
+
+    .logo {
+        margin-left: 20px;
     }
 }
 

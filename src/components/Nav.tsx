@@ -1,8 +1,8 @@
 import pokeball from '../assets/pokeball.png';
-import '../styles/Header.css';
+import '../styles/nav.css';
 import { useState } from 'react';
 
-function Header() {
+function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -10,11 +10,11 @@ function Header() {
   };
 
   return (
-    <header className="header">
+    <nav className="header">
       <div className="logo">
         <img src={pokeball} alt="pokeball" />
       </div>
-      <nav className={`nav ${isOpen ? 'open' : ''}`}>
+      <div className={`nav ${isOpen ? 'open' : ''}`}>
         <ul className="nav-links">
           <li>
             <button className="nav-button">Explore Pokemons</button>
@@ -23,14 +23,14 @@ function Header() {
             <button className="nav-button">Your Team</button>
           </li>
         </ul>
-      </nav>
+      </div>
       <div className={`hamburger ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
         <span className="bar"></span>
         <span className="bar"></span>
         <span className="bar"></span>
       </div>
-    </header>
+    </nav>
   );
 }
 
-export default Header;
+export default Nav;
