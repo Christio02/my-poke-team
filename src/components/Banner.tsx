@@ -5,7 +5,7 @@ export const Banner = () => {
     <>
       <header className="team-intro-section">
         <aside className="team-banner">
-          <h1>Hello world!</h1>
+          <h1>Team page</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa dignissimos eaque labore nihil
             officia quo recusandae reiciendis repellat vitae? Assumenda delectus magni natus, omnis quas quasi sequi
