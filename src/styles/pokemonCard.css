@@ -1,0 +1,88 @@
+.pokemonCard {
+    background-color: #f44d4d;
+    border-radius: 20px;
+    width: 250px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+
+.pokemonNameHeader {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+h3{
+    font-size: 20px;
+    color: black;
+    margin: 20px;
+    font-weight: bold;
+}
+
+
+.icon {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #5c0000;
+
+}
+
+.pokemonImage {
+    width: 200px;
+    height: 200px;
+}
+
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 150px;
+    margin-bottom: 10px;
+}
+
+.leftButton,
+.rightButton {
+    background-color: black;
+    font-size: 5px;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 60px;
+}
+.types{
+    display: flex;
+    gap:20px;
+}
+.leftType {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 10px;
+    background-color: lightgreen;
+    border-radius: 5px;
+
+}
+.rightType{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 10px;
+    background-color: sandybrown;
+    border-radius: 5px;
+
+}
+
