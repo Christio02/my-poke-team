@@ -39,12 +39,18 @@
     background: white;
     text-decoration: none;
     border: 2px solid white;
+    font-size: 1.1rem;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: inherit;
 }
+
 
 .nav-links li button:hover {
     color: white;
     background: #e74c3c;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .hamburger {
@@ -78,6 +84,10 @@
 }
 
 @media (max-width: 768px) {
+    .header {
+        position: fixed;
+    }
+
     .nav {
         display: none;
         position: absolute;
@@ -86,6 +96,7 @@
         text-align: center;
         background-color: #e74c3c;
         margin: 200px 0 0 0;
+        border-bottom: 1px solid #000;
     }
 
     .nav.open {
