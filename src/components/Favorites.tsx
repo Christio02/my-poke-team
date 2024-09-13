@@ -54,7 +54,7 @@ export function Favorites({ name }: FavoritesProps) {
   };
 
   return (
-    <>
+    <div className="team-wrapper">
       <header>
         <h2>Team {name}</h2>
       </header>
@@ -71,17 +71,9 @@ export function Favorites({ name }: FavoritesProps) {
                 onToggleFavorite={() => toggleFavorite(index)}
               />
             </ul>
-<<<<<<< HEAD
-            {/*<PokemonCard />*/}
-            <button onClick={() => handleFavoriteClick(index)}>
-              {!pokemon.isFavorite && <FaRegStar />}
-              {pokemon.isFavorite && <FaStar />}
-            </button>
-=======
->>>>>>> c53ab86 (feat: add pokemonCard compoenent to favorite component)
           </div>
         ))}
       </section>
-    </>
+    </div>
   );
 }
