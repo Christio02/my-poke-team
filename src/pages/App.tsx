@@ -1,16 +1,9 @@
 import '../styles/app.css';
-import Nav from '../components/Nav.tsx';
-import Banner from '../components/Banner.tsx';
-import { TeamPage } from './TeamPage.tsx';
+// import { TeamPage } from './TeamPage.tsx';
+import Root from '../routes/root.tsx';
 
 function App() {
-  return (
-    <>
-      <Nav />
-      <Banner />
-      <TeamPage />
-    </>
-  );
+  return <Root />;
 }
 
 export default App;

@@ -1,6 +1,7 @@
 import pokeball from '../assets/pokeball.png';
 import '../styles/nav.css';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +18,14 @@ function Nav() {
       <div className={`nav ${isOpen ? 'open' : ''}`}>
         <ul className="nav-links">
           <li>
-            <button className="nav-button">Explore Pokemons</button>
+            <Link className="nav-button" to="/">
+              Explore Pokemons
+            </Link>
           </li>
           <li>
-            <button className="nav-button">Your Team</button>
+            <Link className="nav-button" to="/team">
+              Your Team
+            </Link>
           </li>
         </ul>
       </div>
