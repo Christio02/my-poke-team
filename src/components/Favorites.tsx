@@ -2,7 +2,6 @@ import '../styles/team.css';
 import { FaRegStar } from 'react-icons/fa';
 import { FaStar } from 'react-icons/fa';
 import { useState } from 'react';
-// import PokemonCard from './PokemonCard.tsx';
 
 type Pokemon = {
   name: string;
@@ -62,7 +61,7 @@ export function Favorites({ name }: FavoritesProps) {
   };
 
   return (
-    <div className="team-wrapper">
+    <>
       <header>
         <h2>Team {name}</h2>
       </header>
@@ -75,14 +74,13 @@ export function Favorites({ name }: FavoritesProps) {
               <li>{pokemon.type}</li>
               <li>{pokemon.hp}</li>
             </ul>
-            {/*<PokemonCard />*/}
             <button onClick={() => handleFavoriteClick(index)}>
-              {!pokemon.isFavorite && <FaRegStar size={30} />}
-              {pokemon.isFavorite && <FaStar size={30} color="yellow" />}
+              {!pokemon.isFavorite && <FaRegStar />}
+              {pokemon.isFavorite && <FaStar />}
             </button>
           </div>
         ))}
       </section>
-    </div>
+    </>
   );
 }
