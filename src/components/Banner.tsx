@@ -1,39 +1,43 @@
-import desktopBackgroundImage from '../assets/banner.jpg';
-import mobileBackgroundImage from '../assets/banner-mb.jpg';
 import '../styles/banner.css';
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-function Banner() {
-  const [bgImage, setBgImage] = useState(desktopBackgroundImage);
+interface BannerProps {
+  title: string;
+  text: string;
+  desktopImage: string;
+  mobileImage: string;
+}
+
+function Banner({ title, text, desktopImage, mobileImage }: BannerProps) {
+  const [bgImage, setBgImage] = useState(desktopImage);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const updateBackground = () => {
       if (window.innerWidth <= 768) {
-        setBgImage(mobileBackgroundImage);
+        setBgImage(mobileImage);
       } else {
-        setBgImage(desktopBackgroundImage);
+        setBgImage(desktopImage);
       }
     };
 
-    updateBackground(); // Set initial background
-    window.addEventListener('resize', updateBackground); // Update on window resize
+    updateBackground();
+    window.addEventListener('resize', updateBackground);
+
+    setIsLoaded(true);
 
     return () => {
       window.removeEventListener('resize', updateBackground);
     };
-  }, []);
+  }, [desktopImage, mobileImage, location.pathname]);
 
   return (
     <header className="banner" style={{ backgroundImage: `url(${bgImage})` }}>
-      <div className="banner-content">
-        <h1>Tittel</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-          est laborum.
-        </p>
+      <div className={`banner-content ${isLoaded ? 'slide-in' : ''}`}>
+        <h1>{title}</h1>
+        <p>{text}</p>
       </div>
     </header>
   );
