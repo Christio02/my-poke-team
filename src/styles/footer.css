@@ -1,0 +1,28 @@
+.footer{
+    background-color:#5c0000;
+    display:flex;
+    justify-content: center;
+}
+.pokeball{
+    height: 50px;
+    width:50px;
+
+
+}
+.pokeball:hover{
+    animation: shake 2s ease-in-out infinite;
+    transform: translate(-50%, -50%);
+
+}
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+.info{
+    color: white;
+
+}
