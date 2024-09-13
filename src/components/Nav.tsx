@@ -13,7 +13,9 @@ function Nav() {
   return (
     <nav className="header">
       <div className="logo">
-        <img src={pokeball} alt="pokeball" />
+        <Link to="/">
+          <img src={pokeball} alt="pokeball" />
+        </Link>
       </div>
       <div className={`nav ${isOpen ? 'open' : ''}`}>
         <ul className="nav-links">
