@@ -11,27 +11,28 @@ export default function PokemonCard(){
     let handleLeftclick;
     let handleRightclick;
 
+
   return (
-    <section className="pokemonCard">
-      <div className="pokemonName">
+    <main className="pokemonCard">
+      <section className="pokemonName">
         <h2 className="pokemonNameHeader">Name of Pokemon</h2>
-      </div>
+      </section>
       <div className="icon">
         <img className="pokemonImage" src={Cradily} alt="" />
       </div>
-      <div className="buttons">
+      <section className="buttons">
         <button className="leftButton" onClick={handleLeftclick}>prevNum</button>
         <button className="rightButton" onClick={handleRightclick}>nextNum</button>
-      </div>
-      <div className="pokemonNumber">
-        <h3>pokemonNumber</h3>
-      </div>
-      <div className="types">
+      </section>
+
+        <h3 className="pokemonNumber">pokemonNumber</h3>
+
+      <section  className="types">
         <div className="leftType">
         </div>
         <div className="rightType">
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   )
 }
