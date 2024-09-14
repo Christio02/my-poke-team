@@ -10,22 +10,26 @@ function Nav() {
     setIsOpen(!isOpen);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <nav className="header">
       <div className="logo">
-        <Link to="/">
+        <Link to="/" onClick={closeMenu}>
           <img src={pokeball} alt="pokeball" />
         </Link>
       </div>
       <div className={`nav ${isOpen ? 'open' : ''}`}>
         <ul className="nav-links">
           <li>
-            <Link className="nav-button" to="/">
+            <Link className="nav-button" to="/" onClick={closeMenu}>
               Explore Pokemons
             </Link>
           </li>
           <li>
-            <Link className="nav-button" to="/team">
+            <Link className="nav-button" to="/team" onClick={closeMenu}>
               Your Team
             </Link>
           </li>
