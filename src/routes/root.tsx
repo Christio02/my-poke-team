@@ -4,6 +4,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import ImageApp from '../assets/banner.webp';
 import desktopImageTeam from '../assets/banner-team.jpeg';
 import mobileImageTeam from '../assets/banner-team-mb.jpeg';
+import Footer from '../components/Footer.tsx';
 
 export default function Root() {
   const location = useLocation();
@@ -36,6 +37,7 @@ export default function Root() {
         mobileImage={bannerProps.mobileImage}
       />
       <Outlet />
+      <Footer />
     </>
   );
 }

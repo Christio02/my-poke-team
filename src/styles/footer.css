@@ -2,12 +2,11 @@
     background-color:#5c0000;
     display:flex;
     justify-content: center;
+    align-items: center;
 }
 .pokeball{
     height: 50px;
     width:50px;
-
-
 }
 .pokeball:hover{
     animation: shake 2s ease-in-out infinite;
@@ -24,5 +23,4 @@
 
 .info{
     color: white;
-
 }
