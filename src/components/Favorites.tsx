@@ -1,7 +1,6 @@
 import '../styles/team.css';
 import { useState } from 'react';
 import PokemonCard, { Pokemon } from './PokemonCard.tsx';
-// import PokemonCard from './PokemonCard.tsx';
 
 type FavoritesProps = {
   name: string;
