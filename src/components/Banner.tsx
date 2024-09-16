@@ -2,7 +2,7 @@ import '../styles/banner.css';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-interface BannerProps {
+export interface BannerProps {
   title: string;
   text: string;
   desktopImage: string;
@@ -34,7 +34,7 @@ function Banner({ title, text, desktopImage, mobileImage }: BannerProps) {
   }, [desktopImage, mobileImage, location.pathname]);
 
   return (
-    <header className="banner" style={{ backgroundImage: `url(${bgImage})` }}>
+    <header className="banner" style={{ backgroundImage: `url(${bgImage})` }} data-testid="background">
       <div className={`banner-content ${isLoaded ? 'slide-in' : ''}`}>
         <h1>{title}</h1>
         <p>{text}</p>

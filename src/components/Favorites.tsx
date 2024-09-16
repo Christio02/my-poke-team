@@ -2,7 +2,7 @@ import '../styles/team.css';
 import { useState } from 'react';
 import PokemonCard, { Pokemon } from './PokemonCard.tsx';
 
-type FavoritesProps = {
+export type FavoritesProps = {
   name: string;
 };
 

@@ -13,5 +13,10 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: 'src/test/setup.ts',
     include: ['tests/**/*.test.tsx'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'html'],
+      reportsDirectory: './coverage',
+    },
   },
 });

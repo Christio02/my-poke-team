@@ -1,0 +1,73 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Favorites component > matches snapshot with correct props 1`] = `
+<DocumentFragment>
+  <div
+    class="team-wrapper"
+  >
+    <header>
+      <h2>
+        Team Test
+      </h2>
+    </header>
+    <section
+      class="team-section"
+    >
+      <div
+        class="pokemon-card-container"
+      >
+        <ul>
+          <div>
+            PokemonCard
+          </div>
+        </ul>
+      </div>
+      <div
+        class="pokemon-card-container"
+      >
+        <ul>
+          <div>
+            PokemonCard
+          </div>
+        </ul>
+      </div>
+      <div
+        class="pokemon-card-container"
+      >
+        <ul>
+          <div>
+            PokemonCard
+          </div>
+        </ul>
+      </div>
+      <div
+        class="pokemon-card-container"
+      >
+        <ul>
+          <div>
+            PokemonCard
+          </div>
+        </ul>
+      </div>
+      <div
+        class="pokemon-card-container"
+      >
+        <ul>
+          <div>
+            PokemonCard
+          </div>
+        </ul>
+      </div>
+      <div
+        class="pokemon-card-container"
+      >
+        <ul>
+          <div>
+            PokemonCard
+          </div>
+        </ul>
+      </div>
+    </section>
+  </div>
+</DocumentFragment>
+`;
