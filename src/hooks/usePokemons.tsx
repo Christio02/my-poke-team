@@ -9,7 +9,7 @@ const usePokemons = () => {
   const [nextUrl, setNextUrl] = useState<string | null>(POKEMON_API_POKEMON_URL);
   const [prevUrl, setPrevUrl] = useState<string | null>(POKEMON_API_POKEMON_URL);
   useEffect(() => {
-    fetchPokemons();
+    fetchPokemons(POKEMON_API_POKEMON_URL);
   }, []);
 
   const indexedPokemonToListPokemon = (indexedPokemon: IndexedPokemon) => {
@@ -26,22 +26,31 @@ const usePokemons = () => {
     return listPokemon;
   };
 
-  const fetchPokemons = async () => {
-    if (nextUrl) {
-      const result = await httpClient.get<PokemonListResponse>(nextUrl);
+  const fetchPokemons = async (url: string | null) => {
+    if (url) {
+      const result = await httpClient.get<PokemonListResponse>(url);
       if (result?.data?.results) {
         const listPokemons = result.data.results.map((p) => indexedPokemonToListPokemon(p));
         setPokemons(listPokemons);
         setNextUrl(result.data.next);
+        setPrevUrl(result.data.previous);
       }
-
-      console.log(result);
+    }
+  };
+  const fetchNextPage = () => {
+    if (nextUrl) {
+      fetchPokemons(nextUrl);
+    }
+  };
+  const fetchPrevPage = () => {
+    if (prevUrl) {
+      fetchPokemons(prevUrl);
     }
   };
   return {
     pokemons,
-    fetchNextPage: fetchPokemons,
-    hasMorePokemon: !!nextUrl,
+    fetchNextPage,
+    fetchPrevPage,
   };
 };
 export default usePokemons;

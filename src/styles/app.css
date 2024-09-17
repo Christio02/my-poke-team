@@ -5,3 +5,25 @@
   justify-content: center;
   align-items: center;
 }
+.next, .prev {
+  color: white;
+  background: #5c0000;
+  text-decoration: none;
+  border: 2px solid #5c0000;
+  font-size: 1.1rem;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.next:hover {
+  color: black;
+  background: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.prev:hover {
+  color: black;
+  background: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
