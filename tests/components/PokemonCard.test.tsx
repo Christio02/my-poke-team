@@ -34,7 +34,7 @@ describe('PokemonCard component', () => {
     expect(screen.getByText('Diglett')).toBeInTheDocument();
     expect(screen.getByText('50')).toBeInTheDocument();
 
-    const starIcon = screen.getByTestId('non-favorite-icon');
+    const starIcon = screen.getByTestId(`non-favorite-icon-${testCardData.id}`);
     expect(starIcon).toBeInTheDocument();
   });
   it('matches snapshot with correct props and shows FaRegStar when not favorite ', () => {

@@ -30,9 +30,9 @@ export default function PokemonCard({ name, id, isFavorite, onToggleFavorite }: 
           nextNum
         </button>
       </div>
-      <button onClick={onToggleFavorite}>
-        {!isFavorite && <FaRegStar size={30} data-testid="non-favorite-icon" />}
-        {isFavorite && <FaStar size={30} color="yellow" data-testid="favorite-icon" />}
+      <button onClick={onToggleFavorite} data-testid={`favorite-button-${id}`}>
+        {!isFavorite && <FaRegStar size={30} data-testid={`non-favorite-icon-${id}`} />}
+        {isFavorite && <FaStar size={30} color="yellow" data-testid={`favorite-icon-${id}`} />}
       </button>
       <div className="pokemonNumber">
         <h3>{id}</h3>

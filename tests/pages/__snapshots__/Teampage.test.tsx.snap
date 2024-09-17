@@ -55,10 +55,12 @@ exports[`Teampage > matches snapshot with correct props 1`] = `
                   nextNum
                 </button>
               </div>
-              <button>
+              <button
+                data-testid="favorite-button-1"
+              >
                 <svg
                   color="yellow"
-                  data-testid="favorite-icon"
+                  data-testid="favorite-icon-1"
                   fill="currentColor"
                   height="30"
                   stroke="currentColor"
@@ -132,9 +134,11 @@ exports[`Teampage > matches snapshot with correct props 1`] = `
                   nextNum
                 </button>
               </div>
-              <button>
+              <button
+                data-testid="favorite-button-2"
+              >
                 <svg
-                  data-testid="non-favorite-icon"
+                  data-testid="non-favorite-icon-2"
                   fill="currentColor"
                   height="30"
                   stroke="currentColor"
@@ -207,10 +211,12 @@ exports[`Teampage > matches snapshot with correct props 1`] = `
                   nextNum
                 </button>
               </div>
-              <button>
+              <button
+                data-testid="favorite-button-3"
+              >
                 <svg
                   color="yellow"
-                  data-testid="favorite-icon"
+                  data-testid="favorite-icon-3"
                   fill="currentColor"
                   height="30"
                   stroke="currentColor"
@@ -284,9 +290,11 @@ exports[`Teampage > matches snapshot with correct props 1`] = `
                   nextNum
                 </button>
               </div>
-              <button>
+              <button
+                data-testid="favorite-button-4"
+              >
                 <svg
-                  data-testid="non-favorite-icon"
+                  data-testid="non-favorite-icon-4"
                   fill="currentColor"
                   height="30"
                   stroke="currentColor"
@@ -359,10 +367,12 @@ exports[`Teampage > matches snapshot with correct props 1`] = `
                   nextNum
                 </button>
               </div>
-              <button>
+              <button
+                data-testid="favorite-button-5"
+              >
                 <svg
                   color="yellow"
-                  data-testid="favorite-icon"
+                  data-testid="favorite-icon-5"
                   fill="currentColor"
                   height="30"
                   stroke="currentColor"
@@ -436,10 +446,12 @@ exports[`Teampage > matches snapshot with correct props 1`] = `
                   nextNum
                 </button>
               </div>
-              <button>
+              <button
+                data-testid="favorite-button-6"
+              >
                 <svg
                   color="yellow"
-                  data-testid="favorite-icon"
+                  data-testid="favorite-icon-6"
                   fill="currentColor"
                   height="30"
                   stroke="currentColor"

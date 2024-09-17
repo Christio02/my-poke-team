@@ -37,9 +37,11 @@ exports[`PokemonCard component > matches snapshot with correct props and shows F
         nextNum
       </button>
     </div>
-    <button>
+    <button
+      data-testid="favorite-button-50"
+    >
       <svg
-        data-testid="non-favorite-icon"
+        data-testid="non-favorite-icon-50"
         fill="currentColor"
         height="30"
         stroke="currentColor"
