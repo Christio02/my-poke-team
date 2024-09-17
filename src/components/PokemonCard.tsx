@@ -1,6 +1,14 @@
+
 import '../styles/pokemonCard.css';
 import Cradily from '../assets/cradilypng.png';
 import { FaRegStar, FaStar } from 'react-icons/fa';
+import '../styles/pokemonCard.css';
+import {ListPokemon } from '../interfaces/pokemons.tsx';
+
+interface PokemonCardProps {
+  pokemon: ListPokemon;
+
+}
 
 export type Pokemon = {
   name: string;
@@ -44,3 +52,4 @@ export default function PokemonCard({ name, id, isFavorite, onToggleFavorite }: 
     </section>
   );
 }
+

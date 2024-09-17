@@ -5,7 +5,7 @@
     padding: 20px;
     text-align: center;
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     align-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin: 20px;
@@ -44,45 +44,4 @@ h3{
 }
 
 
-.buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 150px;
-    margin-bottom: 10px;
-}
-
-.leftButton,
-.rightButton {
-    background-color: black;
-    font-size: 5px;
-    color: white;
-    cursor: pointer;
-    padding: 10px;
-    width: 60px;
-}
-.types{
-    display: flex;
-    gap:20px;
-}
-.leftType {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 10px;
-    background-color: lightgreen;
-    border-radius: 5px;
-
-}
-.rightType{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 10px;
-    background-color: sandybrown;
-    border-radius: 5px;
-
-}
 
