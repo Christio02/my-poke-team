@@ -17,13 +17,19 @@ export default function Filter({ name, values, onFilterChange }: FilterProps) {
   return (
     <div className="pokemon-types">
       <label htmlFor={name.toLowerCase()}>{name}</label>
-      <select id={name.toLowerCase()} value={selectedValue} onChange={handleChange} />
-      <option value="">Select {name}</option>
-      {values.map((value, index) => (
-        <option key={index} value={value}>
-          {value}
-        </option>
-      ))}
+      <select
+        id={name.toLowerCase()}
+        value={selectedValue}
+        onChange={handleChange}
+        aria-placeholder={`Select a ${name} `}
+      >
+        <option value="">Select {name}</option>
+        {values.map((value, index) => (
+          <option key={index} value={value}>
+            {value}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { ListPokemon } from '../interfaces/pokemons.tsx';
+import { ListPokemon } from '../interfaces/pokemons.ts';
 import PokemonCard from './PokemonCard.tsx';
 import '../styles/pokemonList.css';
 
