@@ -21,33 +21,30 @@
     z-index: 1;
 }
 
-/* Define the keyframes for slide-in from the left with opacity transition */
 @keyframes slideInWithOpacity {
     0% {
         opacity: 0;
-        transform: translateX(-100%); /* Start off-screen to the left */
+        transform: translateX(-100%);
     }
     100% {
         opacity: 1;
-        transform: translateX(0); /* End with full opacity and in place */
+        transform: translateX(0);
     }
 }
 
-/* Initial state for banner-content */
 .banner-content {
     position: relative;
     z-index: 2;
     color: white;
     padding: 20px;
     margin-left: 50px;
-    max-width: 600px;
-    opacity: 0;  /* Initially hidden */
-    transform: translateX(-100%);  /* Start off-screen to the left */
+    max-width: 800px;
+    opacity: 0;
+    transform: translateX(-100%);
 }
 
-/* When slide-in is triggered */
 .banner-content.slide-in {
-    animation: slideInWithOpacity 0.5s ease-out forwards; /* Smooth slide-in and fade over 1.5s */
+    animation: slideInWithOpacity 0.5s ease-out forwards;
 }
 
 .banner h1 {
@@ -56,7 +53,7 @@
 }
 
 .banner p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-top: 10px;
     line-height: 2;
 }

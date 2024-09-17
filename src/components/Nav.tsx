@@ -25,7 +25,7 @@ function Nav() {
         <ul className="nav-links">
           <li>
             <Link className="nav-button" to="/home" onClick={closeMenu}>
-              Explore Pokemons
+              Explore Pokémons
             </Link>
           </li>
           <li>

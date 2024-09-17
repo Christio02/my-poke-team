@@ -4,15 +4,22 @@ import '../styles/pokemonList.css';
 
 interface PokemonListProps {
   pokemons: ListPokemon[];
+  onToggleFavorite: (pokemon: ListPokemon) => void;
+  isFavorited: (pokemon: ListPokemon) => boolean;
 }
 
-const PokemonList = ({ pokemons }: PokemonListProps) => {
+const PokemonList = ({ pokemons, onToggleFavorite, isFavorited }: PokemonListProps) => {
   return (
     <div className="pokemon-grid">
       {pokemons.length > 0 ? (
-        pokemons.map((pokemon) => {
-          return <PokemonCard key={pokemon.name} pokemon={pokemon} isFavorite={false} />;
-        })
+        pokemons.map((pokemon) => (
+          <PokemonCard
+            key={pokemon.name}
+            pokemon={pokemon}
+            isFavorite={isFavorited(pokemon)}
+            onToggleFavorite={() => onToggleFavorite(pokemon)}
+          />
+        ))
       ) : (
         <div>No Pokémon available</div>
       )}
