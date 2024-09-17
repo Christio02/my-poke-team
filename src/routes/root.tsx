@@ -5,9 +5,6 @@ import ImageApp from '../assets/banner.webp';
 import desktopImageTeam from '../assets/banner-team.jpeg';
 import mobileImageTeam from '../assets/banner-team-mb.jpeg';
 import Footer from '../components/Footer.tsx';
-import usePokemons from '../hooks/usePokemons.tsx';
-import PokemonList from '../components/PokemonList.tsx';
-import Footer from '../components/Footer.tsx';
 
 export default function Root() {
   const location = useLocation();
@@ -43,5 +40,4 @@ export default function Root() {
       <Footer />
     </>
   );
-
 }

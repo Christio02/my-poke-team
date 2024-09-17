@@ -1,13 +1,16 @@
 import '../styles/team.css';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { RiPencilFill } from 'react-icons/ri';
+import { IoIosSave } from 'react-icons/io';
 import PokemonCard, { Pokemon } from './PokemonCard.tsx';
-// import PokemonCard from './PokemonCard.tsx';
 
-type FavoritesProps = {
-  name: string;
-};
+export function Favorites() {
+  const [name, setName] = useState(() => {
+    const savedName = localStorage.getItem('teamName');
+    return savedName || '';
+  });
+  const [isEditing, setIsEditing] = useState(false); // New state for editing mode
 
-export function Favorites({ name }: FavoritesProps) {
   const [pokemonData, setPokemonData] = useState<Pokemon[]>([
     {
       name: 'Bulbasaur',
@@ -47,32 +50,70 @@ export function Favorites({ name }: FavoritesProps) {
     },
   ]);
 
-  const toggleFavorite = (index: number) => {
+  const toggleFavorite = (id: number) => {
     setPokemonData((prevData) =>
-      prevData.map((pokemon, i) => (i === index ? { ...pokemon, isFavorite: !pokemon.isFavorite } : pokemon)),
+      prevData.map((pokemon) => (pokemon.id === id ? { ...pokemon, isFavorite: !pokemon.isFavorite } : pokemon)),
     );
+  };
+
+  useEffect(() => {
+    localStorage.setItem('teamName', name);
+  }, [name]);
+
+  const handleDoubleClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleBlur = () => {
+    setIsEditing(false);
+  };
+  // used gpt to make team name editable when double clicking: "How can we make input field like double clicking team name to edit?"
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
   };
 
   return (
     <div className="team-wrapper">
       <header>
-        <h2>Team {name}</h2>
+        {isEditing ? (
+          <input
+            type="text"
+            value={name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            autoFocus
+            className="input-team-name"
+          />
+        ) : (
+          <h2 className="team-name" onDoubleClick={handleDoubleClick}>
+            {name || 'Click pencil to edit name'}
+          </h2>
+        )}
+        <div>
+          <button className="edit-name-button" onClick={() => setIsEditing(!isEditing)}>
+            {isEditing ? (
+              <IoIosSave size={30} className="edit-name-icon" />
+            ) : (
+              <RiPencilFill size={30} className="edit-name-icon" />
+            )}
+          </button>
+        </div>
       </header>
 
       <section className="team-section">
-        {pokemonData.map((pokemon, index) => (
-          <div className="pokemon-card-container" key={index}>
-            <ul>
+        {pokemonData
+          .filter((pokemon) => pokemon.isFavorite)
+          .map((pokemon) => (
+            <div className="pokemon-card-container" key={pokemon.id}>
               <PokemonCard
                 name={pokemon.name}
                 type={pokemon.type}
                 id={pokemon.id}
                 isFavorite={pokemon.isFavorite}
-                onToggleFavorite={() => toggleFavorite(index)}
+                onToggleFavorite={() => toggleFavorite(pokemon.id)}
               />
-            </ul>
-          </div>
-        ))}
+            </div>
+          ))}
       </section>
     </div>
   );

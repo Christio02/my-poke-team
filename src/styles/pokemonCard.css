@@ -38,6 +38,17 @@ h3{
 
 }
 
+.button-icon {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    margin-top: 30px;
+}
+
 .pokemonImage {
     width: 200px;
     height: 200px;

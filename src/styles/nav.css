@@ -1,5 +1,5 @@
 .header {
-    background-color: #e74c3c;
+    background-color:#5c0000;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,7 +47,7 @@
 
 .nav-button:hover {
     color: white;
-    background: #e74c3c;
+    background: #5c0000;
     transition: all 0.3s ease;
     cursor: pointer;
 }

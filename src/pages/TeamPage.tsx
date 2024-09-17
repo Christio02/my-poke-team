@@ -5,7 +5,7 @@ export function TeamPage() {
   return (
     <>
       <main className="team-page">
-        <Favorites name="Chris" />
+        <Favorites />
       </main>
     </>
   );
