@@ -41,14 +41,7 @@ const usePokemons = () => {
       if (result?.data?.results) {
         const listPokemonsPromises = result.data.results.map(indexedPokemonToListPokemon);
         const newPokemons = await Promise.all(listPokemonsPromises);
-        // const uniquePokemons = [
-        //   ...pokemons,
-        //   ...newPokemons.filter(
-        //     (newPokemon) =>
-        //       !pokemons.some((existingPokemon) => existingPokemon.pokedexNumber === newPokemon.pokedexNumber),
-        //   ),
-        // ];
-        // setPokemons(uniquePokemons);
+
         setPokemons(newPokemons);
         setNextUrl(result.data.next);
         setPrevUrl(result.data.previous);
