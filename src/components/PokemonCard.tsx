@@ -22,15 +22,11 @@ export default function PokemonCard({ pokemon, isFavorite, onToggleFavorite }: P
         <img className="pokemonImage" src={pokemon.images} alt={pokemon.name} />
       </div>
       <button onClick={onToggleFavorite} className="button-icon">
-        {!isFavorite && <FaRegStar size={30} />}
-        {isFavorite && <FaStar size={30} color="yellow" />}
+        {!isFavorite && <FaRegStar size={40} />}
+        {isFavorite && <FaStar size={40} color="yellow" />}
       </button>
       <div className="pokemonNumber">
         <h3>{pokemon.pokedexNumber}</h3>
-      </div>
-      <div className="types">
-        <div className="leftType"></div>
-        <div className="rightType"></div>
       </div>
     </section>
   );

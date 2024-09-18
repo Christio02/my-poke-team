@@ -6,6 +6,7 @@ import Root from './routes/root.tsx';
 import { TeamPage } from './pages/TeamPage.tsx';
 import ErrorPage from './error-page.tsx';
 import App from './pages/App.tsx';
+import { PokemonProvider } from './context/PokemonContext'; // Import the provider
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Navigate to="/home" replace />,
+        element: <Navigate to="/home" replace />, // Redirect to /home
       },
       {
         path: '/team',
@@ -31,6 +32,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <PokemonProvider>
+      <RouterProvider router={router} />
+    </PokemonProvider>
   </StrictMode>,
 );

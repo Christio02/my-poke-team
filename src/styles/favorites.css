@@ -15,17 +15,17 @@ header {
 
 .team-section {
     display: grid;
-    width: fit-content;
-    grid-template-rows: repeat(2, auto);
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 2rem;
-    place-content: center;
+    justify-content: center;
+    align-items: center;
     padding: 2rem;
+    width: 65%;
 }
 
 .pokemon-card-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
@@ -80,11 +80,11 @@ header {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-@media (max-width: 780px) {
+
+@media (max-width: 768px) {
     .team-section {
         grid-template-columns: repeat(1, 1fr);
         padding: 1rem;
         grid-gap: 1rem;
     }
-
 }

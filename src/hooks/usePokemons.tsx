@@ -8,6 +8,7 @@ const usePokemons = () => {
   const [pokemons, setPokemons] = useState<ListPokemon[]>([]);
   const [nextUrl, setNextUrl] = useState<string | null>(POKEMON_API_POKEMON_URL);
   const [prevUrl, setPrevUrl] = useState<string | null>(POKEMON_API_POKEMON_URL);
+  const [page, setPage] = useState(1);
   useEffect(() => {
     fetchPokemons(POKEMON_API_POKEMON_URL);
   }, []);
@@ -40,17 +41,20 @@ const usePokemons = () => {
   const fetchNextPage = () => {
     if (nextUrl) {
       fetchPokemons(nextUrl);
+      setPage(page + 1);
     }
   };
   const fetchPrevPage = () => {
     if (prevUrl) {
       fetchPokemons(prevUrl);
+      setPage(page - 1);
     }
   };
   return {
     pokemons,
     fetchNextPage,
     fetchPrevPage,
+    page,
   };
 };
 export default usePokemons;

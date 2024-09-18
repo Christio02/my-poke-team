@@ -1,60 +1,22 @@
-import '../styles/team.css';
+import '../styles/favorites.css';
 import React, { useEffect, useState } from 'react';
 import { RiPencilFill } from 'react-icons/ri';
 import { IoIosSave } from 'react-icons/io';
-import PokemonCard, { Pokemon } from './PokemonCard.tsx';
+import PokemonCard from './PokemonCard.tsx';
+import { ListPokemon } from '../interfaces/pokemons.tsx';
 
-export function Favorites() {
+interface FavoritesProps {
+  pokemons: ListPokemon[];
+  onToggleFavorite: (pokemon: ListPokemon) => void;
+  isFavorited: (pokemon: ListPokemon) => boolean;
+}
+
+export function Favorites({ pokemons, onToggleFavorite, isFavorited }: FavoritesProps) {
   const [name, setName] = useState(() => {
     const savedName = localStorage.getItem('teamName');
-    return savedName || '';
+    return savedName || 'Click pencil to edit name';
   });
-  const [isEditing, setIsEditing] = useState(false); // New state for editing mode
-
-  const [pokemonData, setPokemonData] = useState<Pokemon[]>([
-    {
-      name: 'Bulbasaur',
-      type: 'Grass',
-      id: 1,
-      isFavorite: true,
-    },
-    {
-      name: 'Charmander',
-      type: 'Fire',
-      id: 2,
-      isFavorite: false,
-    },
-    {
-      name: 'Squirtle',
-      type: 'Water',
-      id: 3,
-      isFavorite: true,
-    },
-    {
-      name: 'Pidgey',
-      type: 'Normal',
-      id: 4,
-      isFavorite: false,
-    },
-    {
-      name: 'Jigglypuff',
-      type: 'Fairy',
-      id: 5,
-      isFavorite: true,
-    },
-    {
-      name: 'Psyduck',
-      type: 'Water',
-      id: 6,
-      isFavorite: true,
-    },
-  ]);
-
-  const toggleFavorite = (id: number) => {
-    setPokemonData((prevData) =>
-      prevData.map((pokemon) => (pokemon.id === id ? { ...pokemon, isFavorite: !pokemon.isFavorite } : pokemon)),
-    );
-  };
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('teamName', name);
@@ -67,7 +29,7 @@ export function Favorites() {
   const handleBlur = () => {
     setIsEditing(false);
   };
-  // used gpt to make team name editable when double clicking: "How can we make input field like double clicking team name to edit?"
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
@@ -86,7 +48,7 @@ export function Favorites() {
           />
         ) : (
           <h2 className="team-name" onDoubleClick={handleDoubleClick}>
-            {name || 'Click pencil to edit name'}
+            {name}
           </h2>
         )}
         <div>
@@ -101,19 +63,19 @@ export function Favorites() {
       </header>
 
       <section className="team-section">
-        {pokemonData
-          .filter((pokemon) => pokemon.isFavorite)
-          .map((pokemon) => (
-            <div className="pokemon-card-container" key={pokemon.id}>
+        {pokemons.length > 0 ? (
+          pokemons.map((pokemon) => (
+            <div className="pokemon-card-container" key={pokemon.pokedexNumber}>
               <PokemonCard
-                name={pokemon.name}
-                type={pokemon.type}
-                id={pokemon.id}
-                isFavorite={pokemon.isFavorite}
-                onToggleFavorite={() => toggleFavorite(pokemon.id)}
+                pokemon={pokemon}
+                isFavorite={isFavorited(pokemon)}
+                onToggleFavorite={() => onToggleFavorite(pokemon)}
               />
             </div>
-          ))}
+          ))
+        ) : (
+          <h2>No Pokémons in your team.</h2>
+        )}
       </section>
     </div>
   );
