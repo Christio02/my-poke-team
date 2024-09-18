@@ -17,14 +17,14 @@ function Nav() {
   return (
     <nav className="header">
       <div className="logo">
-        <Link to="/home" onClick={closeMenu}>
+        <Link to="/project1" onClick={closeMenu}>
           <img src={pokeball} alt="pokeball" />
         </Link>
       </div>
       <div className={`nav ${isOpen ? 'open' : ''}`}>
         <ul className="nav-links">
           <li>
-            <Link className="nav-button" to="/home" onClick={closeMenu}>
+            <Link className="nav-button" to="/project1" onClick={closeMenu}>
               Explore Pokémons
             </Link>
           </li>
