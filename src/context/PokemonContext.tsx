@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { ListPokemon } from '../interfaces/pokemons.tsx';
 
 const PokemonContext = createContext<{
@@ -12,7 +12,16 @@ const PokemonContext = createContext<{
 });
 
 export const PokemonProvider = ({ children }: { children: ReactNode }) => {
-  const [favoritePokemons, setFavoritePokemons] = useState<ListPokemon[]>([]);
+  const initializeFavorites = () => {
+    const savedFavorites = localStorage.getItem('favoritePokemons');
+    return savedFavorites ? JSON.parse(savedFavorites) : [];
+  };
+
+  const [favoritePokemons, setFavoritePokemons] = useState<ListPokemon[]>(initializeFavorites);
+
+  useEffect(() => {
+    localStorage.setItem('favoritePokemons', JSON.stringify(favoritePokemons));
+  }, [favoritePokemons]);
 
   const toggleFavorite = (pokemon: ListPokemon) => {
     const isAlreadyFavorited = favoritePokemons.find((fav) => fav.pokedexNumber === pokemon.pokedexNumber);

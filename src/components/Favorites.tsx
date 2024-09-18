@@ -14,7 +14,7 @@ interface FavoritesProps {
 export function Favorites({ pokemons, onToggleFavorite, isFavorited }: FavoritesProps) {
   const [name, setName] = useState(() => {
     const savedName = localStorage.getItem('teamName');
-    return savedName || 'Click pencil to edit name';
+    return savedName || 'Click pencil to edit team name';
   });
   const [isEditing, setIsEditing] = useState(false);
 
