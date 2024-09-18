@@ -16,14 +16,14 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Navigate to="/home" replace />, // Redirect to /home
+        element: <Navigate to="/project1" replace />, // Redirect to /home
       },
       {
         path: '/team',
         element: <TeamPage />,
       },
       {
-        path: '/home',
+        path: '/project1',
         element: <App />,
       },
     ],
