@@ -21,7 +21,11 @@ export default function PokemonCard({ pokemon, isFavorite, onToggleFavorite }: P
       <div className="icon">
         <img className="pokemonImage" src={pokemon.images} alt={pokemon.name} />
       </div>
-      <button onClick={onToggleFavorite} className="button-icon">
+      <button
+        onClick={onToggleFavorite}
+        className="button-icon"
+        aria-label={isFavorite ? 'Remove Pokemon from favorites' : 'Add Pokemon to favorites'}
+      >
         {!isFavorite && <FaRegStar size={40} />}
         {isFavorite && <FaStar size={40} color="yellow" />}
       </button>
