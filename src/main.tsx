@@ -10,23 +10,23 @@ import { PokemonProvider } from './context/PokemonContext'; // Import the provid
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/project1',
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '/',
-        element: <Navigate to="/project1" replace />, // Redirect to /home
+        path: '/project1',
+        element: <App />,
       },
       {
         path: '/team',
         element: <TeamPage />,
       },
-      {
-        path: '/project1',
-        element: <App />,
-      },
     ],
+  },
+  {
+    path: '/',
+    element: <Navigate to="/project1" replace />,
   },
 ]);
 
