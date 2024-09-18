@@ -1,6 +1,6 @@
 import '../styles/pokemonCard.css';
 import { FaRegStar, FaStar } from 'react-icons/fa';
-import { ListPokemon } from '../interfaces/pokemons.tsx';
+import { ListPokemon } from '../interfaces/pokemons.ts';
 
 interface PokemonCardProps {
   pokemon: ListPokemon;
