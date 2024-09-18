@@ -29,7 +29,7 @@ function Nav() {
             </Link>
           </li>
           <li>
-            <Link className="nav-button" to="/team" onClick={closeMenu}>
+            <Link className="nav-button" to="team" onClick={closeMenu}>
               Your Team
             </Link>
           </li>
