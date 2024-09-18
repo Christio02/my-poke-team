@@ -21,6 +21,13 @@ function App() {
   };
 
   useEffect(() => {
+    const savedFilter = sessionStorage.getItem('filter');
+    if (savedFilter) {
+      setSelectedType(savedFilter);
+    }
+  }, []);
+
+  useEffect(() => {
     if (selectedType) {
       const filtered = pokemons.filter((pokemon) =>
         pokemon.types.some((type: string) => type.toLowerCase() === selectedType.toLowerCase()),
