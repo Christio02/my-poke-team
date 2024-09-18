@@ -46,7 +46,7 @@ function App() {
         {filteredPokemons.length > 0 ? (
           <PokemonList pokemons={filteredPokemons} isFavorited={isFavorited} onToggleFavorite={toggleFavorite} />
         ) : (
-          <p>No Pokémon available</p>
+          <h2>No Pokémons</h2>
         )}
         {loading && <p>Loading...</p>}
 
