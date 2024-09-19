@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles/index.css';
-import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/root.tsx';
 import { TeamPage } from './pages/TeamPage.tsx';
 import ErrorPage from './error-page.tsx';
@@ -24,10 +24,10 @@ const router = createBrowserRouter([
       },
     ],
   },
-  {
-    path: '/',
-    element: <Navigate to="/project1" replace />,
-  },
+  // {
+  //   path: '/',
+  //   element: <Navigate to="/project1" replace />,
+  // },
 ]);
 
 createRoot(document.getElementById('root')!).render(
