@@ -1,4 +1,4 @@
-import { httpClient } from '../api/httpClient.tsx';
+import { httpClient } from '../api/httpClient.ts';
 import { IndexedPokemon, ListPokemon, PokemonListResponse, PokemonTypeInfo } from '../interfaces/pokemons.ts';
 import { POKEMON_API_POKEMON_SPRITE, POKEMON_API_POKEMON_URL } from '../constants.tsx';
 import { useEffect, useState } from 'react';
