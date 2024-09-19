@@ -25,14 +25,9 @@ export default function Filter({ name, values, onFilterChange }: FilterProps) {
   }, [selectedValue]);
   return (
     <div className="pokemon-types">
-      <label htmlFor={name.toLowerCase()}>Filter on type</label>
-      <select
-        id={name.toLowerCase()}
-        value={selectedValue}
-        onChange={handleChange}
-        aria-placeholder={`Select a ${name} `}
-      >
-        <option value="">All types</option>
+      <label htmlFor={name.toLowerCase()}>{name}</label>
+      <select id={name.toLowerCase()} value={selectedValue} onChange={handleChange} aria-label={`Select a ${name} `}>
+        <option value="">Select {name}</option>
         {values.map((value, index) => (
           <option key={index} value={value}>
             {value}
