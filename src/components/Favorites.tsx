@@ -14,7 +14,7 @@ interface FavoritesProps {
 export function Favorites({ pokemons, onToggleFavorite, isFavorited }: FavoritesProps) {
   const [name, setName] = useState(() => {
     const savedName = localStorage.getItem('teamName');
-    return savedName || 'Click pencil to edit team name';
+    return savedName || 'Team name';
   });
   const [isEditing, setIsEditing] = useState(false);
 
@@ -31,7 +31,13 @@ export function Favorites({ pokemons, onToggleFavorite, isFavorited }: Favorites
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
+    let newName = e.target.value;
+
+    if (newName.length > 20) {
+      newName = newName.substring(0, 20);
+    }
+
+    setName(newName);
   };
 
   return (

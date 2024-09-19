@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../styles/filter.css';
 
 type FilterProps = {
   name: string;
@@ -25,12 +26,7 @@ export default function Filter({ name, values, onFilterChange }: FilterProps) {
   return (
     <div className="pokemon-types">
       <label htmlFor={name.toLowerCase()}>{name}</label>
-      <select
-        id={name.toLowerCase()}
-        value={selectedValue}
-        onChange={handleChange}
-        aria-placeholder={`Select a ${name} `}
-      >
+      <select id={name.toLowerCase()} value={selectedValue} onChange={handleChange} aria-label={`Select a ${name} `}>
         <option value="">Select {name}</option>
         {values.map((value, index) => (
           <option key={index} value={value}>

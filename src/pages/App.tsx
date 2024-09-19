@@ -44,19 +44,20 @@ function AppContent() {
   return (
     <main className="main">
       <Filter name="Type" values={pokemonTypes} onFilterChange={handleTypeFilterChange} />
-
-      <PokemonList
-        pokemons={filteredPokemons}
-        isFavorited={isFavorited}
-        onToggleFavorite={toggleFavorite}
-        isLoading={isLoading || isFetching}
-      />
+      
+      {filteredPokemons.length > 0 ? (
+          <PokemonList pokemons={filteredPokemons} isFavorited={isFavorited} onToggleFavorite={toggleFavorite} />
+        ) : (
+          <h2>No Pokémons</h2>
+        )}
+        {loading && <p>Loading...</p>}
 
       <section className="button-container">
         <button onClick={fetchPrevPage} className="prev">
           <MdKeyboardArrowLeft className="arrow" />
           Previous
         </button>
+
 
         <button onClick={fetchNextPage} className="next">
           Next
@@ -65,7 +66,8 @@ function AppContent() {
       </section>
     </main>
   );
-}
+}      
+
 
 function App() {
   return (

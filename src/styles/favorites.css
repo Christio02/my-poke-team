@@ -49,7 +49,9 @@ header {
 }
 
 .input-team-name:focus {
+    outline: 3px solid #e74c3c;
     border: none;
+    border-radius: 2pt;
     font-size: 1.5rem;
     font-weight: bold;
     font-family: sans-serif;
@@ -75,16 +77,21 @@ header {
     color: #e74c3c;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1050px) {
     .team-section {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 710px) {
     .team-section {
         grid-template-columns: repeat(1, 1fr);
-        padding: 1rem;
-        grid-gap: 1rem;
+        gap: 75px;
+    }
+}
+
+@media (max-width: 430px) {
+    .team-section {
+        gap: 0;
     }
 }
