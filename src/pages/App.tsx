@@ -6,6 +6,7 @@ import usePokemons from '../hooks/usePokemons';
 import { usePokemonContext } from '../context/usePokemonContext.ts';
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
 import Filter from '../components/Filter';
+import { pokemonTypes } from '../interfaces/pokemons.ts';
 
 const queryClient = new QueryClient();
 
@@ -15,8 +16,6 @@ function AppContent() {
     return sessionStorage.getItem('filter') || '';
   });
   const { toggleFavorite, isFavorited } = usePokemonContext();
-
-  const pokemonTypes = ['Grass', 'Fire', 'Water', 'Electric'];
 
   const handleTypeFilterChange = useCallback((selectedType: string) => {
     setSelectedType(selectedType);
