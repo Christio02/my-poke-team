@@ -1,11 +1,13 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useState, useEffect, ReactNode } from 'react';
 import { ListPokemon } from '../interfaces/pokemons.tsx';
 
-const PokemonContext = createContext<{
+interface PokemonContextType {
   favoritePokemons: ListPokemon[];
   toggleFavorite: (pokemon: ListPokemon) => void;
   isFavorited: (pokemon: ListPokemon) => boolean;
-}>({
+}
+
+export const PokemonContext = createContext<PokemonContextType>({
   favoritePokemons: [],
   toggleFavorite: () => {},
   isFavorited: () => false,
@@ -44,8 +46,4 @@ export const PokemonProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </PokemonContext.Provider>
   );
-};
-
-export const usePokemonContext = () => {
-  return useContext(PokemonContext);
 };

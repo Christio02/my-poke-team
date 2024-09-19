@@ -1,7 +1,7 @@
 import '../styles/app.css';
 import PokemonList from '../components/PokemonList.tsx';
 import usePokemons from '../hooks/usePokemons.ts';
-import { usePokemonContext } from '../context/PokemonContext';
+import { usePokemonContext } from '../context/usePokemonContext.ts';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { useEffect, useState } from 'react';
@@ -46,7 +46,7 @@ function App() {
         {filteredPokemons.length > 0 ? (
           <PokemonList pokemons={filteredPokemons} isFavorited={isFavorited} onToggleFavorite={toggleFavorite} />
         ) : (
-          <h2>No Pokémons</h2>
+          <p>No Pokémon of this type in this page</p>
         )}
         {loading && <p>Loading...</p>}
 
