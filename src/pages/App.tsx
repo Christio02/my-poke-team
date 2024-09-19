@@ -1,16 +1,18 @@
+import { useState, useEffect } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import '../styles/app.css';
-import PokemonList from '../components/PokemonList.tsx';
-import usePokemons from '../hooks/usePokemons.ts';
+import PokemonList from '../components/PokemonList';
+import usePokemons from '../hooks/usePokemons';
 import { usePokemonContext } from '../context/PokemonContext';
-import { MdKeyboardArrowRight } from 'react-icons/md';
-import { MdKeyboardArrowLeft } from 'react-icons/md';
-import { useEffect, useState } from 'react';
-import { ListPokemon } from '../interfaces/pokemons.ts';
-import Filter from '../components/Filter.tsx';
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
+import { ListPokemon } from '../interfaces/pokemons';
+import Filter from '../components/Filter';
 
-function App() {
-  const { pokemons, fetchNextPage, fetchPrevPage, page, loading, hasMorePokemon } = usePokemons();
-  const [filteredPokemons, setFilterPokemons] = useState<ListPokemon[]>([]);
+const queryClient = new QueryClient();
+
+function AppContent() {
+  const { pokemons, fetchNextPage, fetchPrevPage, isLoading, isFetching } = usePokemons();
+  const [filteredPokemons, setFilteredPokemons] = useState<ListPokemon[]>([]);
   const [selectedType, setSelectedType] = useState<string>('');
   const { toggleFavorite, isFavorited } = usePokemonContext();
 
@@ -18,6 +20,7 @@ function App() {
 
   const handleTypeFilterChange = (selectedType: string) => {
     setSelectedType(selectedType);
+    sessionStorage.setItem('filter', selectedType);
   };
 
   useEffect(() => {
@@ -32,39 +35,43 @@ function App() {
       const filtered = pokemons.filter((pokemon) =>
         pokemon.types.some((type: string) => type.toLowerCase() === selectedType.toLowerCase()),
       );
-      setFilterPokemons(filtered.slice(0, 20));
+      setFilteredPokemons(filtered);
     } else {
-      setFilterPokemons(pokemons.slice(0, 20));
+      setFilteredPokemons(pokemons);
     }
   }, [pokemons, selectedType]);
 
   return (
-    <>
-      <main className="main">
-        <Filter name="Type" values={pokemonTypes} onFilterChange={handleTypeFilterChange} />
+    <main className="main">
+      <Filter name="Type" values={pokemonTypes} onFilterChange={handleTypeFilterChange} />
 
-        {filteredPokemons.length > 0 ? (
-          <PokemonList pokemons={filteredPokemons} isFavorited={isFavorited} onToggleFavorite={toggleFavorite} />
-        ) : (
-          <p>No Pokémon available</p>
-        )}
-        {loading && <p>Loading...</p>}
+      <PokemonList
+        pokemons={filteredPokemons}
+        isFavorited={isFavorited}
+        onToggleFavorite={toggleFavorite}
+        isLoading={isLoading || isFetching}
+      />
 
-        <section className="button-container">
-          <button className="prev" onClick={fetchPrevPage}>
-            <MdKeyboardArrowLeft className="arrow" />
-            Prev Page
-          </button>
-          {hasMorePokemon && (
-            <button className="next" onClick={fetchNextPage}>
-              Next Page
-              <MdKeyboardArrowRight className="arrow" />
-            </button>
-          )}
-        </section>
-        <h3 className="page-number">Page {page}</h3>
-      </main>
-    </>
+      <section className="button-container">
+        <button onClick={fetchPrevPage} className="prev">
+          <MdKeyboardArrowLeft className="arrow" />
+          Previous
+        </button>
+
+        <button onClick={fetchNextPage} className="next">
+          Next
+          <MdKeyboardArrowRight className="arrow" />
+        </button>
+      </section>
+    </main>
+  );
+}
+
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AppContent />
+    </QueryClientProvider>
   );
 }
 
