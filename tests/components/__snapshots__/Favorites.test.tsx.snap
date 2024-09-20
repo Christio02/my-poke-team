@@ -6,9 +6,31 @@ exports[`Favorites component > matches snapshot with correct props 1`] = `
     class="team-wrapper"
   >
     <header>
-      <h2>
-        Team Test
+      <h2
+        class="team-name"
+      >
+        Team name
       </h2>
+      <div>
+        <button
+          class="edit-name-button"
+        >
+          <svg
+            class="edit-name-icon"
+            fill="currentColor"
+            height="30"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.8995 6.85453L17.1421 11.0972L7.24264 20.9967H3V16.754L12.8995 6.85453ZM14.3137 5.44032L16.435 3.319C16.8256 2.92848 17.4587 2.92848 17.8492 3.319L20.6777 6.14743C21.0682 6.53795 21.0682 7.17112 20.6777 7.56164L18.5563 9.68296L14.3137 5.44032Z"
+            />
+          </svg>
+        </button>
+      </div>
     </header>
     <section
       class="team-section"
@@ -16,196 +38,30 @@ exports[`Favorites component > matches snapshot with correct props 1`] = `
       <div
         class="pokemon-card-container"
       >
-        <ul>
-          <div>
-            PokemonCard
-            <button
-              data-testid="favorite-button-1"
-            >
-              <span
-                data-testid="favorite-icon"
-              >
-                <svg
-                  color="yellow"
-                  data-testid="favorite-icon-1"
-                  fill="currentColor"
-                  height="30"
-                  stroke="currentColor"
-                  stroke-width="0"
-                  style="color: yellow;"
-                  viewBox="0 0 576 512"
-                  width="30"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
-        </ul>
+        <div>
+          <p>
+            Bulbasaur
+          </p>
+          <button
+            data-testid="favorite-button-1"
+          >
+            Unfavorite
+          </button>
+        </div>
       </div>
       <div
         class="pokemon-card-container"
       >
-        <ul>
-          <div>
-            PokemonCard
-            <button
-              data-testid="favorite-button-2"
-            >
-              <span
-                data-testid="non-favorite-icon"
-              >
-                <svg
-                  data-testid="non-favorite-icon-2"
-                  fill="currentColor"
-                  height="30"
-                  stroke="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 576 512"
-                  width="30"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
-        </ul>
-      </div>
-      <div
-        class="pokemon-card-container"
-      >
-        <ul>
-          <div>
-            PokemonCard
-            <button
-              data-testid="favorite-button-3"
-            >
-              <span
-                data-testid="favorite-icon"
-              >
-                <svg
-                  color="yellow"
-                  data-testid="favorite-icon-3"
-                  fill="currentColor"
-                  height="30"
-                  stroke="currentColor"
-                  stroke-width="0"
-                  style="color: yellow;"
-                  viewBox="0 0 576 512"
-                  width="30"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
-        </ul>
-      </div>
-      <div
-        class="pokemon-card-container"
-      >
-        <ul>
-          <div>
-            PokemonCard
-            <button
-              data-testid="favorite-button-4"
-            >
-              <span
-                data-testid="non-favorite-icon"
-              >
-                <svg
-                  data-testid="non-favorite-icon-4"
-                  fill="currentColor"
-                  height="30"
-                  stroke="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 576 512"
-                  width="30"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
-        </ul>
-      </div>
-      <div
-        class="pokemon-card-container"
-      >
-        <ul>
-          <div>
-            PokemonCard
-            <button
-              data-testid="favorite-button-5"
-            >
-              <span
-                data-testid="favorite-icon"
-              >
-                <svg
-                  color="yellow"
-                  data-testid="favorite-icon-5"
-                  fill="currentColor"
-                  height="30"
-                  stroke="currentColor"
-                  stroke-width="0"
-                  style="color: yellow;"
-                  viewBox="0 0 576 512"
-                  width="30"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
-        </ul>
-      </div>
-      <div
-        class="pokemon-card-container"
-      >
-        <ul>
-          <div>
-            PokemonCard
-            <button
-              data-testid="favorite-button-6"
-            >
-              <span
-                data-testid="favorite-icon"
-              >
-                <svg
-                  color="yellow"
-                  data-testid="favorite-icon-6"
-                  fill="currentColor"
-                  height="30"
-                  stroke="currentColor"
-                  stroke-width="0"
-                  style="color: yellow;"
-                  viewBox="0 0 576 512"
-                  width="30"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
-        </ul>
+        <div>
+          <p>
+            Ivysaur
+          </p>
+          <button
+            data-testid="favorite-button-2"
+          >
+            Favorite
+          </button>
+        </div>
       </div>
     </section>
   </div>

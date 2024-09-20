@@ -32,27 +32,27 @@ describe('Nav component', () => {
     const user = userEvent.setup();
 
     render(
-      <MemoryRouter initialEntries={['/']}>
+      <MemoryRouter initialEntries={['/project1']}>
         <Routes>
-          <Route path="/" element={<Nav />} />
-          <Route path="/team" element={<TeamPage />} />
+          <Route path="/project1" element={<Nav />} />
+          <Route path="/project1/team" element={<TeamPage />} />
         </Routes>
       </MemoryRouter>,
     );
 
     await user.click(screen.getByRole('link', { name: /Your Team/i }));
 
-    expect(screen.getByText('Team Chris')).toBeInTheDocument();
+    expect(screen.getByText(/Team name/i)).toBeInTheDocument();
   });
   it('navigates to homepage after clicking Link element', async () => {
     const user = userEvent.setup();
 
     render(
-      <MemoryRouter initialEntries={['/team']}>
+      <MemoryRouter initialEntries={['/project1/team']}>
         <Routes>
-          <Route path="/team" element={<Nav />} />
+          <Route path="/project1/team" element={<Nav />} />
           <Route
-            path="/"
+            path="/project1"
             element={
               <Banner
                 title={bannerTestData.title}
@@ -65,7 +65,7 @@ describe('Nav component', () => {
         </Routes>
       </MemoryRouter>,
     );
-    await user.click(screen.getByRole('link', { name: /Explore Pokemons/i }));
+    await user.click(screen.getByRole('link', { name: /Explore Pokémons/i }));
     expect(screen.getByText('Lorem ipsum')).toBeInTheDocument();
   });
 });

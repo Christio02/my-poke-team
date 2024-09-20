@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Filter component > matches snapshot with correct props 1`] = `
+<DocumentFragment>
+  <div
+    class="pokemon-types"
+  >
+    <label
+      for="type"
+    >
+      Type
+    </label>
+    <select
+      aria-label="Select a Type "
+      id="type"
+    >
+      <option
+        value=""
+      >
+        Select Type
+      </option>
+      <option
+        value="Fire"
+      >
+        Fire
+      </option>
+      <option
+        value="Water"
+      >
+        Water
+      </option>
+      <option
+        value="Grass"
+      >
+        Grass
+      </option>
+    </select>
+  </div>
+</DocumentFragment>
+`;

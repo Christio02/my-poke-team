@@ -1,61 +1,29 @@
-import PokemonCard, { Pokemon } from '../../src/components/PokemonCard';
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import PokemonCard from '../../src/components/PokemonCard';
+import { describe, it, expect } from 'vitest';
 
-const createTestData = () => {
-  return { name: 'Diglett', type: 'Earth', id: 50, isFavorite: false, onToggleFavorite: () => {} };
+
+const mockPokemon = {
+  name: "Raticate",
+  images: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/20.svg",
+  url:"https://pokeapi.co/api/v2/pokemon/20/",
+  pokedexNumber: 20,
+  types: ["Normal"],
 };
-let testCardData: Pokemon;
-beforeEach(() => {
-  testCardData = createTestData();
-});
 
 describe('PokemonCard component', () => {
-  it('renders with correct props and shows FaRegStar when not favorite ', () => {
-    render(
-      <MemoryRouter initialEntries={['/team']}>
-        <Routes>
-          <Route
-            path="/team"
-            element={
-              <PokemonCard
-                name={testCardData.name}
-                type={testCardData.name}
-                id={testCardData.id}
-                isFavorite={testCardData.isFavorite}
-                onToggleFavorite={testCardData.onToggleFavorite}
-              />
-            }
-          />
-        </Routes>
-      </MemoryRouter>,
-    );
-    screen.debug();
-    expect(screen.getByText('Diglett')).toBeInTheDocument();
-    expect(screen.getByText('50')).toBeInTheDocument();
+  it('renders PokemonCard with correct data', () => {
+    render(<PokemonCard pokemon={mockPokemon} isFavorite={false} />);
 
-    const starIcon = screen.getByTestId(`non-favorite-icon-${testCardData.id}`);
-    expect(starIcon).toBeInTheDocument();
+    const pokemonName = screen.getByText(/Raticate/i);
+    expect(pokemonName).toBeInTheDocument();
+
+    const pokemonImage = screen.getByAltText('Raticate');
+    expect(pokemonImage).toHaveAttribute('src', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/20.svg');
+
+    const pokedexNumber = screen.getByText(/20/i);
+    expect(pokedexNumber).toBeInTheDocument();
+
   });
-  it('matches snapshot with correct props and shows FaRegStar when not favorite ', () => {
-    const { asFragment } = render(
-      <MemoryRouter initialEntries={['/team']}>
-        <Routes>
-          <Route
-            path="/team"
-            element={
-              <PokemonCard
-                name={testCardData.name}
-                type={testCardData.name}
-                id={testCardData.id}
-                isFavorite={testCardData.isFavorite}
-                onToggleFavorite={testCardData.onToggleFavorite}
-              />
-            }
-          />
-        </Routes>
-      </MemoryRouter>,
-    );
-    expect(asFragment()).toMatchSnapshot();
-  });
+
 });
