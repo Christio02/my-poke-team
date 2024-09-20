@@ -1,0 +1,64 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Banner component > matches snapshot on path /team and desktopimage 1`] = `
+<DocumentFragment>
+  <header
+    class="banner"
+    data-testid="background"
+    style="background-image: url(../../src/assets/banner-team-mb.jpeg);"
+  >
+    <div
+      class="banner-content slide-in"
+    >
+      <h1>
+        Test
+      </h1>
+      <p>
+        Lorem ipsum
+      </p>
+    </div>
+  </header>
+</DocumentFragment>
+`;
+
+exports[`Banner component > matches snapshot on path /team and mobile 1`] = `
+<DocumentFragment>
+  <header
+    class="banner"
+    data-testid="background"
+    style="background-image: url(../../src/assets/banner-team-mb.jpeg);"
+  >
+    <div
+      class="banner-content slide-in"
+    >
+      <h1>
+        Test
+      </h1>
+      <p>
+        Lorem ipsum
+      </p>
+    </div>
+  </header>
+</DocumentFragment>
+`;
+
+exports[`Banner component > matches snapshot on root path with desktop view 1`] = `
+<DocumentFragment>
+  <header
+    class="banner"
+    data-testid="background"
+    style="background-image: url(../../src/assets/banner-team-mb.jpeg);"
+  >
+    <div
+      class="banner-content slide-in"
+    >
+      <h1>
+        Test
+      </h1>
+      <p>
+        Lorem ipsum
+      </p>
+    </div>
+  </header>
+</DocumentFragment>
+`;

@@ -5,7 +5,7 @@ import { IoIosSave } from 'react-icons/io';
 import PokemonCard from './PokemonCard.tsx';
 import { ListPokemon } from '../interfaces/pokemons.tsx';
 
-interface FavoritesProps {
+export interface FavoritesProps {
   pokemons: ListPokemon[];
   onToggleFavorite: (pokemon: ListPokemon) => void;
   isFavorited: (pokemon: ListPokemon) => boolean;
