@@ -1,25 +1,87 @@
 # Testing for MyPokeTeam
+The tests ensure that all major components, pages, and routes function correctly and meet the expected behavior.
 
-## Banner test
-Snapshot test to test banner renders with correct text and image on root path, 
-and that banner renders with correct text and image on /team path for desktop and mobile
+Here is the coverage of the components and pages tested:
 
-## Favourites test
-Mathces the favourite component with correct props. It renders with correct number of PokemonCard components. It also renders "No Pokémons in your team" when there are no Pokémon.
-It also tests prevention of a longer name than 20 characters. And toggles favourite is clicked.
-## Filter test
-Filter component matches snapshot, it also test if filter renders with corrct amount of options and correct props. It also checks if filter change when value is selected. It also checks if filter value persists in storage, and restores filter value from sessionStorage.
+![component coverage](./images/componentsCoverage.png)
+![team page coverage](./images/teamPageCoverage.png)
+![root coverage](./images/rootCoverage.png)
 
-## Nav test
-Checks link elements of the navbar.
+Below is a detailed breakdown of the testing for each component.
 
-## Pokemon Card test
-Makes sure pokemon Card renders with correct data.
-## Team page test
-Matches snapshot with correct props.
 
-## Routing test
-Renders root component on homepage correctly. Renders TeamPage on /team route. Renders ErrorPage on invalid path.
+### Banner test
+__Test File:__ Banner.test.tsx
+
+__Description:__ Tests the Banner component, which displays a banner with a title, text, and background images depending on the route (/ for root and /team for the team page).
+
+__Test Cases:__
+- Renders the correct text and image on the root path (/) in desktop view.
+- Renders the correct text and image on /team in desktop view.
+- Adjusts to mobile image when the viewport size is set to mobile dimensions.
+- Matches snapshots for both desktop and mobile views.
+
+### Favourites test
+__Test File:__ Favorites.test.tsx
+
+__Description:__ Tests the Favorites component, which manages a list of Pokémon and allows users to toggle them as favorites.
+
+__Test Cases:__
+- Renders with the correct Pokémon data.
+- Matches snapshot for the component.
+- Displays the correct number of PokemonCard components.
+- Shows a message if no Pokémon are in the team.
+- Restricts team name to a maximum of 20 characters.
+- Toggles a Pokémon as favorite when the button is clicked.
+
+### Filter test
+__Test File:__ Filter.test.tsx
+
+__Description:__ Tests the Filter component, which allows users to filter Pokémon by type.
+
+__Test Cases:__
+- Renders with correct props.
+- Matches snapshot.
+- Displays the correct number of options for filter types.
+- Calls onFilterChange when a new filter is selected.
+- Persists the filter value in sessionStorage.
+- Restores the filter value from sessionStorage.
+
+### Nav test
+__Test File:__ Nav.test.tsx
+
+__Description:__ Tests the Nav component, which displays a navigation bar with links to the home page and team page.
+
+__Test Cases:__
+- Navigates to the team page when the link is clicked.
+- Navigates back to the homepage when the link is clicked.
+
+### Pokemon Card test
+__Test File:__ PokemonCard.test.tsx
+
+__Description:__ Tests the PokemonCard component, which displays a Pokémon's name, image, and type.
+
+__Test Cases:__
+- Renders with correct Pokémon data, including name, image, and Pokedex number.
+
+### Team page test
+__Test File:__ TeamPage.test.tsx
+
+__Description:__ Tests the TeamPage component, which displays a list of Pokémon that the user has added to their team.
+
+__Test Cases:__
+- Matches snapshot with correct props.
+
+### Routing test
+__Test File:__ Routing.test.tsx
+
+__Description:__ Tests the routing integration to ensure that the correct components render based on different routes.
+
+__Test Cases:__
+- Renders the Root component on the homepage.
+- Renders the TeamPage component on the /team route.
+- Renders the ErrorPage for an invalid path.
+
 
 
 

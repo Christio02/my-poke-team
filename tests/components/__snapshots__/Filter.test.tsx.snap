@@ -8,7 +8,7 @@ exports[`Filter component > matches snapshot with correct props 1`] = `
     <label
       for="type"
     >
-      Type
+      Filter on type
     </label>
     <select
       aria-label="Select a Type "
@@ -17,7 +17,7 @@ exports[`Filter component > matches snapshot with correct props 1`] = `
       <option
         value=""
       >
-        Select Type
+        All types
       </option>
       <option
         value="Fire"

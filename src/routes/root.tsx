@@ -20,7 +20,7 @@ export default function Root() {
   } else {
     bannerProps = {
       title: 'Explore Pokémons',
-      text: 'Discover and explore a wide variety of Pokémons. Learn about their names, abilities and types. You can also select your favorite Pokémons and build your own dream team of up to 6 members. Add them to your personal collection by starring them, and strategize the best team to use in your battles!',
+      text: 'Discover and explore a wide variety of Pokémons. Learn about their names and types. You can also select your favorite Pokémons and build your own dream team of up to 6 members. Add them to your personal collection by starring them, and strategize the best team to use in your battles!',
       desktopImage: ImageApp,
       mobileImage: ImageApp,
     };
