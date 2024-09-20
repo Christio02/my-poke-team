@@ -1,77 +1,87 @@
-import '../styles/team.css';
-import { useState } from 'react';
-import PokemonCard, { Pokemon } from './PokemonCard.tsx';
+import '../styles/favorites.css';
+import React, { useEffect, useState } from 'react';
+import { RiPencilFill } from 'react-icons/ri';
+import { IoIosSave } from 'react-icons/io';
+import PokemonCard from './PokemonCard.tsx';
+import { ListPokemon } from '../interfaces/pokemons.tsx';
 
-export type FavoritesProps = {
-  name: string;
-};
+interface FavoritesProps {
+  pokemons: ListPokemon[];
+  onToggleFavorite: (pokemon: ListPokemon) => void;
+  isFavorited: (pokemon: ListPokemon) => boolean;
+}
 
-export function Favorites({ name }: FavoritesProps) {
-  const [pokemonData, setPokemonData] = useState<Pokemon[]>([
-    {
-      name: 'Bulbasaur',
-      type: 'Grass',
-      id: 1,
-      isFavorite: true,
-    },
-    {
-      name: 'Charmander',
-      type: 'Fire',
-      id: 2,
-      isFavorite: false,
-    },
-    {
-      name: 'Squirtle',
-      type: 'Water',
-      id: 3,
-      isFavorite: true,
-    },
-    {
-      name: 'Pidgey',
-      type: 'Normal',
-      id: 4,
-      isFavorite: false,
-    },
-    {
-      name: 'Jigglypuff',
-      type: 'Fairy',
-      id: 5,
-      isFavorite: true,
-    },
-    {
-      name: 'Psyduck',
-      type: 'Water',
-      id: 6,
-      isFavorite: true,
-    },
-  ]);
+export function Favorites({ pokemons, onToggleFavorite, isFavorited }: FavoritesProps) {
+  const [name, setName] = useState(() => {
+    const savedName = localStorage.getItem('teamName');
+    return savedName || 'Team name';
+  });
+  const [isEditing, setIsEditing] = useState(false);
 
-  const toggleFavorite = (index: number) => {
-    setPokemonData((prevData) =>
-      prevData.map((pokemon, i) => (i === index ? { ...pokemon, isFavorite: !pokemon.isFavorite } : pokemon)),
-    );
+  useEffect(() => {
+    localStorage.setItem('teamName', name);
+  }, [name]);
+
+  const handleDoubleClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleBlur = () => {
+    setIsEditing(false);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let newName = e.target.value;
+
+    if (newName.length > 20) {
+      newName = newName.substring(0, 20);
+    }
+
+    setName(newName);
   };
 
   return (
     <div className="team-wrapper">
       <header>
-        <h2>Team {name}</h2>
+        {isEditing ? (
+          <input
+            type="text"
+            value={name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            autoFocus
+            className="input-team-name"
+          />
+        ) : (
+          <h2 className="team-name" onDoubleClick={handleDoubleClick}>
+            {name}
+          </h2>
+        )}
+        <div>
+          <button className="edit-name-button" onClick={() => setIsEditing(!isEditing)}>
+            {isEditing ? (
+              <IoIosSave size={30} className="edit-name-icon" />
+            ) : (
+              <RiPencilFill size={30} className="edit-name-icon" />
+            )}
+          </button>
+        </div>
       </header>
 
       <section className="team-section">
-        {pokemonData.map((pokemon, index) => (
-          <div className="pokemon-card-container" key={index}>
-            <ul>
+        {pokemons.length > 0 ? (
+          pokemons.map((pokemon) => (
+            <div className="pokemon-card-container" key={pokemon.pokedexNumber}>
               <PokemonCard
-                name={pokemon.name}
-                type={pokemon.type}
-                id={pokemon.id}
-                isFavorite={pokemon.isFavorite}
-                onToggleFavorite={() => toggleFavorite(index)}
+                pokemon={pokemon}
+                isFavorite={isFavorited(pokemon)}
+                onToggleFavorite={() => onToggleFavorite(pokemon)}
               />
-            </ul>
-          </div>
-        ))}
+            </div>
+          ))
+        ) : (
+          <h2>No Pokémons in your team.</h2>
+        )}
       </section>
     </div>
   );

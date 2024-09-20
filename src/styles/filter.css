@@ -1,0 +1,23 @@
+select {
+    outline: none;
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 10px;
+    border: 3px solid #4a0000;
+    border-radius: 5px;
+    margin: 20px 0 20px 0;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4a0000;
+}
+
+.pokemon-types {
+    text-align: center;
+}

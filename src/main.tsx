@@ -5,23 +5,35 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/root.tsx';
 import { TeamPage } from './pages/TeamPage.tsx';
 import ErrorPage from './error-page.tsx';
+import App from './pages/App.tsx';
+import { PokemonProvider } from './context/PokemonContext'; // Import the provider
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/project1',
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '/team',
+        path: '',
+        element: <App />,
+      },
+      {
+        path: 'team',
         element: <TeamPage />,
       },
     ],
   },
+  // {
+  //   path: '/',
+  //   element: <Navigate to="/project1" replace />,
+  // },
 ]);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <PokemonProvider>
+      <RouterProvider router={router} />
+    </PokemonProvider>
   </StrictMode>,
 );

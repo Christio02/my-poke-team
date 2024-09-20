@@ -5,24 +5,18 @@
     padding: 20px;
     text-align: center;
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
 
 .pokemonNameHeader {
-    font-size: 20px;
-    color: white;
-    margin-bottom: 10px;
-}
-
-h3{
-    font-size: 20px;
-    color: black;
-    margin: 20px;
-    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: #4a0000;
+    text-shadow: beige 0 0 5px;
 }
 
 
@@ -35,7 +29,25 @@ h3{
     justify-content: center;
     align-items: center;
     border: 5px solid #5c0000;
+}
 
+h3 {
+    font-size: 25px;
+    margin-top: 20px;
+    color: #4a0000;
+}
+
+.button-icon {
+    background: none;
+    border: none;
+    color: #4a0000;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.button-icon:hover {
+    color: yellow;
+    transition: all 0.2s ease;
 }
 
 .pokemonImage {
@@ -43,46 +55,12 @@ h3{
     height: 200px;
 }
 
-
-.buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 150px;
-    margin-bottom: 10px;
+@media (max-width: 430px) {
+    .pokemonCard {
+        transform: scale(0.85);
+    }
 }
 
-.leftButton,
-.rightButton {
-    background-color: black;
-    font-size: 5px;
-    color: white;
-    cursor: pointer;
-    padding: 10px;
-    width: 60px;
-}
-.types{
-    display: flex;
-    gap:20px;
-}
-.leftType {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 10px;
-    background-color: lightgreen;
-    border-radius: 5px;
 
-}
-.rightType{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 10px;
-    background-color: sandybrown;
-    border-radius: 5px;
 
-}
 
