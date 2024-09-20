@@ -38,9 +38,11 @@ exports[`Teampage > matches snapshot with correct props 1`] = `
       <section
         class="team-section"
       >
-        <h2>
+        <p
+          class="no-pokemons-text"
+        >
           No Pokémons in your team.
-        </h2>
+        </p>
       </section>
     </div>
   </main>
