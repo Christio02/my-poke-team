@@ -1,50 +1,34 @@
-# React + TypeScript + Vite
+# MyPokeTeam
+MyPokeTeam gives the user the opportunity to browse a wide array of Pokémon and assemble a team of 6. You have the ability to filter by types and save your team and team name. If you're not satisfied, you can always remove certain Pokémon from your team and choose another.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is built on the React framework, using HTML, CSS, and TypeScript. For fetching data from the API, we use TanStack Query with Axios. All of this blends together neatly to create a simple app for Pokémon enthusiasts.
 
-Currently, two official plugins are available:
+## Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+### Functional Requirements:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+By using the arrow keys at the bottom of the page, you can browse through resources one by one. At the top of the page, you can also select the type of Pokémon you want. This way, you can jump to a specific resource if you wish.
 
-- Configure the top-level `parserOptions` property like this:
+This filtering will be saved just like when you select favorites. Your favorites are remembered and displayed on the “Your Team” page.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+The page has a typical Pokémon theme, with familiar Pokémon colors. The page adjusts based on size and layout.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Api
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+#### The constants we used:
+The api call for pokemons with a /number as integer to access the specific pokemon.
+
+Url: https://pokeapi.co/api/v2/pokemon
+
+
+Images: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork
+
+### Testing:
+[Testing documentation](Testing.md)
+
+### Links to other docs
+[How to use the website](HowTo.md)
+
+[How we applied ai tools](ToolsAi.md)
