@@ -34,14 +34,8 @@ button {
     font-size: 1.5rem;
 }
 
-.next:hover {
-  color: black;
-  background: white;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-.prev:hover {
-  color: black;
+.next:hover, .prev:hover {
+  color: #4a0000;
   background: white;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -50,4 +44,15 @@ button {
 .page-number {
   font-size: 1.2rem;
   color: #4a0000;
+}
+
+.message {
+  font-size: 1.4rem;
+  color: #4a0000;
+}
+
+@media (max-width: 430px) {
+  .button-container {
+    gap: 50px;
+  }
 }

@@ -80,7 +80,7 @@ export function Favorites({ pokemons, onToggleFavorite, isFavorited }: Favorites
             </div>
           ))
         ) : (
-          <h2>No Pokémons in your team.</h2>
+          <p className="no-pokemons-text">No Pokémons in your team.</p>
         )}
       </section>
     </div>

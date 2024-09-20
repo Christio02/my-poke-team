@@ -16,14 +16,14 @@ function AppContent() {
     return sessionStorage.getItem('filter') || '';
   });
   const { toggleFavorite, isFavorited } = usePokemonContext();
+  const [currentPage, setCurrentPage] = useState(1);
 
   const handleTypeFilterChange = useCallback((selectedType: string) => {
     setSelectedType(selectedType);
     sessionStorage.setItem('filter', selectedType);
-  }, []); // optimized version so not unnecessary re-render
+  }, []);
 
   const filteredPokemons = useMemo(() => {
-    // only re-render if one dependencies changes. claude.ai: "Error: Maximum update depth exceeded. Where in app.tsx does it happen
     if (selectedType) {
       return pokemons
         .filter((pokemon) => pokemon.types.some((type: string) => type.toLowerCase() === selectedType.toLowerCase()))
@@ -31,6 +31,20 @@ function AppContent() {
     }
     return pokemons.slice(0, 20);
   }, [pokemons, selectedType]);
+
+  const handleNextPage = () => {
+    if (!isLoading && !isFetching) {
+      fetchNextPage();
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (!isLoading && !isFetching) {
+      fetchPrevPage();
+      setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+    }
+  };
 
   return (
     <main className="main">
@@ -44,21 +58,23 @@ function AppContent() {
           isLoading={isLoading || isFetching}
         />
       ) : (
-        <p>No Pokémon of this type in this page</p>
+        <p className="message">No Pokémon of this type in this page</p>
       )}
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <p className="message">Loading...</p>}
 
       <section className="button-container">
-        <button onClick={fetchPrevPage} className="prev">
+        <button onClick={handlePrevPage} className="prev" disabled={isLoading || isFetching}>
           <MdKeyboardArrowLeft className="arrow" />
-          Previous
+          Prev
         </button>
 
-        <button onClick={fetchNextPage} className="next">
+        <button onClick={handleNextPage} className="next" disabled={isLoading || isFetching}>
           Next
           <MdKeyboardArrowRight className="arrow" />
         </button>
       </section>
+
+      <h3 className="page-number">Page {currentPage}</h3>
     </main>
   );
 }
