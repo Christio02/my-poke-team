@@ -10,7 +10,7 @@ export default function Root() {
   const location = useLocation();
 
   let bannerProps;
-  if (location.pathname === '/team') {
+  if (location.pathname === '/project1/team') {
     bannerProps = {
       title: 'Your Team',
       text: "Here you can view all the Pokémons you've favorited and added to your personal team. You can manage your team of up to 6 Pokémons, see their details, and adjust your strategy. If you've changed your mind, you can easily remove any Pokémon from your team by un-favoriting them, allowing you to make room for new additions.",
