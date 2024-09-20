@@ -49,7 +49,7 @@ header {
 }
 
 .input-team-name:focus {
-    outline: 3px solid #e74c3c;
+    outline: 3px solid #4a0000;
     border: none;
     border-radius: 2pt;
     font-size: 1.5rem;
@@ -64,17 +64,25 @@ header {
 }
 
 .edit-name-button {
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
+    background: #4a0000;
+    color: white;
+    border: 2px solid #5c0000;
+    border-radius: 10px;
+    padding: 5px;
     font: inherit;
     cursor: pointer;
     outline: inherit;
 }
 
-.edit-name-icon:hover {
-    color: #e74c3c;
+.edit-name-button:hover {
+    color: #4a0000;
+    background: none;
+    transition: all 0.3s ease;
+}
+
+.no-pokemons-text {
+    font-size: 1.4rem;
+    color: #4a0000;
 }
 
 @media (max-width: 1050px) {
@@ -93,5 +101,25 @@ header {
 @media (max-width: 430px) {
     .team-section {
         gap: 0;
+    }
+
+    .input-team-name {
+        margin: 20px 0 20px 0;
+    }
+
+    .team-name, .input-team-name:focus {
+        font-size: 1.3rem;
+    }
+
+    .input-team-name:focus {
+        outline: 2px solid #4a0000;
+    }
+
+    .edit-name-button {
+        scale: 0.8;
+    }
+
+    .no-pokemons-text {
+        font-size: 1.1rem;
     }
 }
