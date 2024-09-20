@@ -25,10 +25,3 @@ Url: https://pokeapi.co/api/v2/pokemon
 
 Images: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork
 
-### Testing:
-[Testing documentation](Testing.md)
-
-### Links to other docs
-[How to use the website](HowTo.md)
-
-[How we applied ai tools](ToolsAi.md)
